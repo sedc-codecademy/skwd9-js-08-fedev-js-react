@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+button {
+    height: 40px;
+    border-radius: 11px;
+    background-color: blue;
+    color: white;
+    font-size: 24px;
+    margin: 0px 10px;
+}
+.result {
+    justify-content: center;
+    display: flex;
+    font-size: 40px;
+    font-family: cursive;
+    padding: 20px 0px;
+}
