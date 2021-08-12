@@ -1,0 +1,23 @@
+Homework requirements: 
+
+1. From swapi api, which we used on the previous class fetch the "people" (as same as we did in class).
+And print the names in the UI.
+
+2.Next to the names that are previously printed, add a toggle button that will have the value "show/hide" details
+(the value is changed based if we showed something or if we hide something). 
+
+3.When clicking the button with value "show" on the right side or on the bottom (your choice) we show a div or 
+table (your choice as well :D ) with the details of the character. As you can guess now when we showed details for 
+that person/character that button will have the value of "hide". While this "transition" is happening, we must alert
+the user if we are loading for the details of that character or the details are loaded. (This means when we click
+on show details first we will alert the user "Loading Deatails" and once the details are showed or displayed we 
+will notify the user that deatails are beign loaded as "Details Loaded").
+
+BONUS:
+1. Make pagination for the people (this means we will have additional next and previous button), and when
+there will be no more people to display we should hide the Next or Previous button. For example if there are 
+only 10 pages, and we are currently on the 10th page, the Next button should be hidden or at least disabled. 
+Same rule for previous. Also print somewhere or atleast log on which page are we at now, and on which page we were before.
+2. Change the color of the font or the background of the character which details are displayed. 
+
+** Do not forget to browse the swapi api documentation. 
