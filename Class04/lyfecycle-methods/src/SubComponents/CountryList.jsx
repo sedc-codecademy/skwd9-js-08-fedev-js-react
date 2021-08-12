@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class CountryList extends React.Component {
     constructor(props) {
         super(props);
 
         this.state={
-            'people': null,
+            'people': props.people,
             'total': null,
             'next': null,
             'previous': null
@@ -13,15 +14,18 @@ export default class CountryList extends React.Component {
 
         // console.log('C-TOR')
     }
+
     // DEPRECATED
     componentWillMount() {
         // console.log('COMPONENT WILL MOUNT');
     }
+
     // DEPRECATED
     componentWillReceiveProps(nextProps) {
         console.log(this.props, nextProps)
         // console.log('COMPONENT WILL REIEVE PROPS', nextProps)
     }
+
     shouldComponentUpdate(nextProps, nextState) {
         // if (nextProps.countries.length === 3 ) {
         //     return false;
@@ -30,18 +34,26 @@ export default class CountryList extends React.Component {
         // console.log('SHOULD COMPONENT UPDATE, BY DEFAULT ALWAYS YES')
         return true;
     }
+
+    //DEPRECATED
     componentWillUpdate(nextProps, nextState) {
         // console.log('COMPONENT WILL UPDATE');
     }
+
     componentDidUpdate(prevProps, prevState) {
         // console.log('COMPONENT DID UPDATE', prevProps, prevState, this.props)
+        if (prevProps.people.length !== this.props.people.length) {
+            alert('PEOPLE LIST HAS CHANGED')
+        }
+
     }
-    // DEPRECATED
+
     componentWillUnmount() {
-        // console.log('COMPONENT WILL DIE :(');
+        console.log('COMPONENT WILL DIE :(');
     }
+
     componentDidMount() {
-        this.fetchSwapiPeople();
+        // this.fetchSwapiPeople();
         // console.log('COMPONENT DID MOUNT')
     }
 
@@ -58,7 +70,6 @@ export default class CountryList extends React.Component {
 
     render () {
         console.log('RENDERINGGG.......')
-
         return(
             <div>
                 <h3>TOTAL: {this.props.total}</h3>
@@ -77,6 +88,18 @@ export default class CountryList extends React.Component {
     }
 }
 
+// Setting default value for people if its not send from the parent
 CountryList.defaultProps = {
     people: []
+}
+
+// setting the types for the props that we excpect
+CountryList.propTypes = {
+    people: PropTypes.array,
+    total: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    onCountryDelete: PropTypes.func,
+
 }

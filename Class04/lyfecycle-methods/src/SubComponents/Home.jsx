@@ -8,8 +8,9 @@ class Home extends Component {
         this.state={
             country: '',
             countries: [],
-            people: [],
+            people: [{},{},{},{},{},{},{},{},{},{}],
             total: null,
+            renderCountryList: true
         }
 
         // setTimeout(() => {
@@ -32,6 +33,12 @@ class Home extends Component {
             total: formatedResponse.count,
             next: formatedResponse.next,
             previous: formatedResponse.previous
+        }, () => {
+            setTimeout(() => {
+                this.setState({
+                    people: [...this.state.people, { 'name': 'GOCE KABOV'}]
+                })
+            }, 5000)
         })
     }
 
@@ -60,6 +67,12 @@ class Home extends Component {
         })
     }
 
+    handleCountryList = () => {
+        this.setState({
+            renderCountryList: !this.state.renderCountryList
+        })
+    }
+
 
 
     render() {
@@ -71,11 +84,20 @@ class Home extends Component {
                 />
                 <button onClick={this.addCountryName.bind(this)}>Add Country</button>
                 <hr/>
-                <CountryList
-                    people={this.state.people}
-                    total={this.state.total}
-                    onCountryDelete={ this.deleteCountry }
-                />
+                {
+                    this.state.renderCountryList &&
+                    <CountryList
+                        people={this.state.people}
+                        total={this.state.total && this.state.total.toString()}
+                        onCountryDelete={ this.deleteCountry }
+                    />
+                }
+                <button
+                    onClick={this.handleCountryList}
+                >
+                    {this.state.renderCountryList ? 'HIDE' : 'SHOW'}
+                </button>
+                
             </div>
         )
     }
