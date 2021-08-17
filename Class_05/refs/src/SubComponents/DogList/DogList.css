@@ -1,0 +1,10 @@
+.dog-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dog-image {
+    padding: 20px;
+    width: 400px;
+    height: 400px;
+}
