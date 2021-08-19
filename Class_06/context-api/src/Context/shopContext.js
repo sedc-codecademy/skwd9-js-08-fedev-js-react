@@ -1,0 +1,9 @@
+import React from 'react';
+
+
+export default React.createContext({
+    products: [],
+    cart: [],
+    addProduct: product => {},
+    removeProduct: productId => {}
+})
