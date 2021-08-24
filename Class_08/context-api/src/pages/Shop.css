@@ -1,0 +1,24 @@
+h2 {
+    font-family: cursive;
+    font-size: 42px;
+}
+.card-img-top {
+    width: 200px;
+}
+.product-card {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
